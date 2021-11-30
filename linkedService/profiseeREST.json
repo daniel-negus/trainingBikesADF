@@ -1,0 +1,12 @@
+{
+	"name": "profiseeREST",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://profsql2021r2.australiaeast.cloudapp.azure.com/Profisee/rest/v1",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
