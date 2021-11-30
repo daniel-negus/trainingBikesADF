@@ -1,0 +1,9 @@
+{
+	"name": "trainingBikesADF",
+	"location": "australiaeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4b298774-95aa-4cdb-8574-6d87601c85d5",
+		"tenantId": "41f80e17-5921-4758-80f1-be074ccc6e66"
+	}
+}
