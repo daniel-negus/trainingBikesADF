@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "trainingBikesADF"
+		},
+		"trainingBikes_accountKey": {
+			"value": ""
+		},
+		"training storage_accountKey": {
+			"value": ""
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://trainingBikesKV.vault.azure.net/"
+		},
+		"profiseeREST_properties_typeProperties_url": {
+			"value": "https://profsql2021r2.australiaeast.cloudapp.azure.com/Profisee/rest/v1"
+		},
+		"trainingBikes_properties_typeProperties_url": {
+			"value": "https://adfwprofisee.dfs.core.windows.net/"
+		},
+		"training storage_properties_typeProperties_url": {
+			"value": "https://adfwprofisee.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

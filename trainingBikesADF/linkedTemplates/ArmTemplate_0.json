@@ -1,0 +1,284 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "trainingBikesADF"
+		},
+		"trainingBikes_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'trainingBikes'"
+		},
+		"training storage_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'training storage'"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://trainingBikesKV.vault.azure.net/"
+		},
+		"profiseeREST_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://profsql2021r2.australiaeast.cloudapp.azure.com/Profisee/rest/v1"
+		},
+		"trainingBikes_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adfwprofisee.dfs.core.windows.net/"
+		},
+		"training storage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adfwprofisee.dfs.core.windows.net/"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureKeyVault1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/profiseeREST')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "RestService",
+				"typeProperties": {
+					"url": "[parameters('profiseeREST_properties_typeProperties_url')]",
+					"enableServerCertificateValidation": true,
+					"authenticationType": "Anonymous"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trainingBikes')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('trainingBikes_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('trainingBikes_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/training storage')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('training storage_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('training storage_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AdlsGen2BlobCsv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Azure Data Lake Storage Gen2 container for CSV format.",
+				"linkedServiceName": {
+					"referenceName": "training storage",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"FolderName": {
+						"type": "string"
+					},
+					"FileName": {
+						"type": "string"
+					}
+				},
+				"folder": {
+					"name": "CSV Format"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@dataset().FileName",
+							"type": "Expression"
+						},
+						"fileSystem": {
+							"value": "@dataset().FolderName",
+							"type": "Expression"
+						}
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/training storage')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ProfiseeRESTAPI_Records_Upsert')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Profisee members update REST API call.",
+				"linkedServiceName": {
+					"referenceName": "profiseeREST",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"entityId": {
+						"type": "string"
+					}
+				},
+				"folder": {
+					"name": "Profisee REST API"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {
+					"relativeUrl": {
+						"value": "@concat(\n'records/',\ndataset().entityId, \n'/?isUpsert=true'\n)\n",
+						"type": "Expression"
+					}
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/profiseeREST')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/training CSV to Profisee REST API')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy from CSV to Profisee REST API",
+						"description": "Copy records from ADLS Gen2 in CSV format to Profisee via the Profisee REST API.",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"additionalColumns": [
+									{
+										"name": "Source System",
+										"value": {
+											"value": "@replace(pipeline().parameters.FileName, '.csv', '')",
+											"type": "Expression"
+										}
+									}
+								],
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "RestSink",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": 10,
+								"requestMethod": "PATCH",
+								"writeBatchSize": 10000,
+								"httpCompressionType": "none"
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "AdlsGen2BlobCsv",
+								"type": "DatasetReference",
+								"parameters": {
+									"FolderName": {
+										"value": "@pipeline().parameters.FileFolder",
+										"type": "Expression"
+									},
+									"FileName": {
+										"value": "@pipeline().parameters.FileName",
+										"type": "Expression"
+									}
+								}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "ProfiseeRESTAPI_Records_Upsert",
+								"type": "DatasetReference",
+								"parameters": {
+									"entityId": {
+										"value": "@replace(pipeline().parameters.FileFolder, 'profisee-input/', '')",
+										"type": "Expression"
+									}
+								}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"parameters": {
+					"FileName": {
+						"type": "string",
+						"defaultValue": "TouringBikes.csv"
+					},
+					"FileFolder": {
+						"type": "string",
+						"defaultValue": "profisee-input/product"
+					}
+				},
+				"folder": {
+					"name": "CSV Format"
+				},
+				"annotations": [],
+				"lastPublishTime": "2020-09-25T15:29:08Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/AdlsGen2BlobCsv')]",
+				"[concat(variables('factoryId'), '/datasets/ProfiseeRESTAPI_Records_Upsert')]"
+			]
+		}
+	]
+}
