@@ -156,7 +156,8 @@
 				},
 				"parameters": {
 					"entityId": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "product"
 					}
 				},
 				"folder": {
