@@ -18,6 +18,15 @@
 				"typeProperties": {
 					"source": {
 						"type": "DelimitedTextSource",
+						"additionalColumns": [
+							{
+								"name": "Source System",
+								"value": {
+									"value": "@replace(pipeline().parameters.FileName, '.csv', '')",
+									"type": "Expression"
+								}
+							}
+						],
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true
@@ -68,10 +77,12 @@
 		],
 		"parameters": {
 			"FileName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "TouringBikes.csv"
 			},
 			"FileFolder": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "profisee-input/product"
 			}
 		},
 		"folder": {
