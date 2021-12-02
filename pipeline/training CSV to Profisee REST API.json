@@ -66,10 +66,7 @@
 						"referenceName": "ProfiseeRESTAPI_Records_Upsert",
 						"type": "DatasetReference",
 						"parameters": {
-							"entityId": {
-								"value": "@replace(pipeline().parameters.FileFolder, 'profisee-input/', '')",
-								"type": "Expression"
-							}
+							"entityId": "product"
 						}
 					}
 				]
