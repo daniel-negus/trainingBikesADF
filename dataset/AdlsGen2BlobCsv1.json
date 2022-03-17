@@ -36,6 +36,55 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "Name",
+				"type": "String"
+			},
+			{
+				"name": "Code",
+				"type": "String"
+			},
+			{
+				"name": "ProductSubCategory",
+				"type": "String"
+			},
+			{
+				"name": "Color",
+				"type": "String"
+			},
+			{
+				"name": "Class",
+				"type": "String"
+			},
+			{
+				"name": "Style",
+				"type": "String"
+			},
+			{
+				"name": "StandardCost",
+				"type": "String"
+			},
+			{
+				"name": "SafetyStockLevel",
+				"type": "String"
+			},
+			{
+				"name": "ReorderPoint",
+				"type": "String"
+			},
+			{
+				"name": "MSRP",
+				"type": "String"
+			},
+			{
+				"name": "DaysToManufacture",
+				"type": "String"
+			},
+			{
+				"name": "DealerCost",
+				"type": "String"
+			}
+		]
 	}
 }
