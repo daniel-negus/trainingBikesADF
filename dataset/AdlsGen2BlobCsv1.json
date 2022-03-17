@@ -8,10 +8,12 @@
 		},
 		"parameters": {
 			"FolderName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "profisee-input\\product"
 			},
 			"FileName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "TouringBikes.csv"
 			}
 		},
 		"folder": {
