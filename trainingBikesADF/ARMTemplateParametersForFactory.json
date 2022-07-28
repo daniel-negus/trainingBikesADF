@@ -5,22 +5,25 @@
 		"factoryName": {
 			"value": "trainingBikesADF"
 		},
-		"trainingBikes_accountKey": {
+		"training storage_accountKey": {
 			"value": ""
 		},
-		"training storage_accountKey": {
+		"trainingBikes_accountKey": {
 			"value": ""
 		},
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
 			"value": "https://trainingBikesKV.vault.azure.net/"
 		},
-		"profiseeREST_properties_typeProperties_url": {
-			"value": "https://profsql2021r2.australiaeast.cloudapp.azure.com/Profisee/rest/v1"
+		"AzureKeyVault2_properties_typeProperties_baseUrl": {
+			"value": "https://training-dn-KV.vault.azure.net/"
 		},
-		"trainingBikes_properties_typeProperties_url": {
-			"value": "https://adfwprofisee.dfs.core.windows.net/"
+		"profiseeREST_properties_typeProperties_url": {
+			"value": "https://training-dn.australiaeast.cloudapp.azure.com/Profisee/rest/v1"
 		},
 		"training storage_properties_typeProperties_url": {
+			"value": "https://adfwprofisee.dfs.core.windows.net/"
+		},
+		"trainingBikes_properties_typeProperties_url": {
 			"value": "https://adfwprofisee.dfs.core.windows.net/"
 		}
 	}

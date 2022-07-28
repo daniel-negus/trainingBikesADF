@@ -7,27 +7,31 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "trainingBikesADF"
 		},
-		"trainingBikes_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'trainingBikes'"
-		},
 		"training storage_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'training storage'"
+		},
+		"trainingBikes_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'trainingBikes'"
 		},
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://trainingBikesKV.vault.azure.net/"
 		},
+		"AzureKeyVault2_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://training-dn-KV.vault.azure.net/"
+		},
 		"profiseeREST_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://profsql2021r2.australiaeast.cloudapp.azure.com/Profisee/rest/v1"
+			"defaultValue": "https://training-dn.australiaeast.cloudapp.azure.com/Profisee/rest/v1"
 		},
-		"trainingBikes_properties_typeProperties_url": {
+		"training storage_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adfwprofisee.dfs.core.windows.net/"
 		},
-		"training storage_properties_typeProperties_url": {
+		"trainingBikes_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adfwprofisee.dfs.core.windows.net/"
 		},
@@ -58,23 +62,26 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"trainingBikes_accountKey": {
-						"value": "[parameters('trainingBikes_accountKey')]"
-					},
 					"training storage_accountKey": {
 						"value": "[parameters('training storage_accountKey')]"
+					},
+					"trainingBikes_accountKey": {
+						"value": "[parameters('trainingBikes_accountKey')]"
 					},
 					"AzureKeyVault1_properties_typeProperties_baseUrl": {
 						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
 					},
+					"AzureKeyVault2_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault2_properties_typeProperties_baseUrl')]"
+					},
 					"profiseeREST_properties_typeProperties_url": {
 						"value": "[parameters('profiseeREST_properties_typeProperties_url')]"
 					},
-					"trainingBikes_properties_typeProperties_url": {
-						"value": "[parameters('trainingBikes_properties_typeProperties_url')]"
-					},
 					"training storage_properties_typeProperties_url": {
 						"value": "[parameters('training storage_properties_typeProperties_url')]"
+					},
+					"trainingBikes_properties_typeProperties_url": {
+						"value": "[parameters('trainingBikes_properties_typeProperties_url')]"
 					}
 				}
 			},
