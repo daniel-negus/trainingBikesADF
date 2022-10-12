@@ -1,0 +1,9 @@
+{
+	"name": "azDEdp203",
+	"location": "australiaeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "daf74ab5-837c-4b4a-a85b-14b83735dbea",
+		"tenantId": "41f80e17-5921-4758-80f1-be074ccc6e66"
+	}
+}
