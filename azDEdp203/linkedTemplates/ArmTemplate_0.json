@@ -340,10 +340,12 @@
 				},
 				"parameters": {
 					"FolderName": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "Bakery"
 					},
 					"FileName": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "Bakery"
 					}
 				},
 				"folder": {
@@ -354,21 +356,177 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": {
-							"value": "@dataset().FileName",
-							"type": "Expression"
-						},
-						"fileSystem": {
-							"value": "@dataset().FolderName",
-							"type": "Expression"
-						}
+						"fileName": "Bakery.csv",
+						"folderPath": "Bakery",
+						"fileSystem": "profisee-output"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
 					"firstRowAsHeader": true,
 					"quoteChar": "\""
 				},
-				"schema": []
+				"schema": [
+					{
+						"name": "Name",
+						"type": "String"
+					},
+					{
+						"name": "Code",
+						"type": "String"
+					},
+					{
+						"name": "BakeryNumber",
+						"type": "String"
+					},
+					{
+						"name": "Franchisee",
+						"type": "String"
+					},
+					{
+						"name": "Region",
+						"type": "String"
+					},
+					{
+						"name": "SupplierRegion",
+						"type": "String"
+					},
+					{
+						"name": "AreaManagerName",
+						"type": "String"
+					},
+					{
+						"name": "BakeryForSale",
+						"type": "String"
+					},
+					{
+						"name": "StoreType",
+						"type": "String"
+					},
+					{
+						"name": "DateOpened",
+						"type": "String"
+					},
+					{
+						"name": "DateClosed",
+						"type": "String"
+					},
+					{
+						"name": "RoyaltyPercentage",
+						"type": "String"
+					},
+					{
+						"name": "Currency",
+						"type": "String"
+					},
+					{
+						"name": "EFTProvider",
+						"type": "String"
+					},
+					{
+						"name": "MenulogURL",
+						"type": "String"
+					},
+					{
+						"name": "UberURL",
+						"type": "String"
+					},
+					{
+						"name": "OwnershipType",
+						"type": "String"
+					},
+					{
+						"name": "MainPhone",
+						"type": "String"
+					},
+					{
+						"name": "BakeryImage_CMSURL",
+						"type": "String"
+					},
+					{
+						"name": "LocationType",
+						"type": "String"
+					},
+					{
+						"name": "OperatorContact",
+						"type": "String"
+					},
+					{
+						"name": "TradingHoursChangedOn",
+						"type": "String"
+					},
+					{
+						"name": "AddressType",
+						"type": "String"
+					},
+					{
+						"name": "FullAddress",
+						"type": "String"
+					},
+					{
+						"name": "LevelUnitNo",
+						"type": "String"
+					},
+					{
+						"name": "Street3",
+						"type": "String"
+					},
+					{
+						"name": "City",
+						"type": "String"
+					},
+					{
+						"name": "StateProvince",
+						"type": "String"
+					},
+					{
+						"name": "ZipPostalCode",
+						"type": "String"
+					},
+					{
+						"name": "CountryRegion",
+						"type": "String"
+					},
+					{
+						"name": "Longitude",
+						"type": "String"
+					},
+					{
+						"name": "Latitude",
+						"type": "String"
+					},
+					{
+						"name": "PostOfficeBox",
+						"type": "String"
+					},
+					{
+						"name": "NoOfPOSUnits",
+						"type": "String"
+					},
+					{
+						"name": "Store",
+						"type": "String"
+					},
+					{
+						"name": "ValidationStatusID",
+						"type": "String"
+					},
+					{
+						"name": "LastChgUserName",
+						"type": "String"
+					},
+					{
+						"name": "LastChgDTM",
+						"type": "String"
+					},
+					{
+						"name": "EnterUserName",
+						"type": "String"
+					},
+					{
+						"name": "EnterDTM",
+						"type": "String"
+					}
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/BDHdevLinkedService')]"
@@ -664,14 +822,8 @@
 								"referenceName": "AdlsGen2BlobCsv2",
 								"type": "DatasetReference",
 								"parameters": {
-									"FolderName": {
-										"value": "@concat(variables('OutputContainer'), '/', variables('EntityId'))",
-										"type": "Expression"
-									},
-									"FileName": {
-										"value": "@concat(variables('EntityId'), '_', string(utcnow()), '.csv')",
-										"type": "Expression"
-									}
+									"FolderName": "Bakery",
+									"FileName": "Bakery"
 								}
 							}
 						]
