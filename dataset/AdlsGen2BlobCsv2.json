@@ -8,10 +8,12 @@
 		},
 		"parameters": {
 			"FolderName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "Bakery"
 			},
 			"FileName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "Bakery"
 			}
 		},
 		"folder": {

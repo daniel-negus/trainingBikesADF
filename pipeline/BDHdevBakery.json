@@ -61,7 +61,11 @@
 				"outputs": [
 					{
 						"referenceName": "AdlsGen2BlobCsv2",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FolderName": "Bakery",
+							"FileName": "Bakery"
+						}
 					}
 				]
 			}
