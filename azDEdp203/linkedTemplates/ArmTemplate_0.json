@@ -802,7 +802,7 @@
 								"mappings": [
 									{
 										"source": {
-											"path": "internalid"
+											"path": "[['internalid']"
 										},
 										"sink": {
 											"name": "internalId",
@@ -811,7 +811,7 @@
 									},
 									{
 										"source": {
-											"path": "id"
+											"path": "[['id']"
 										},
 										"sink": {
 											"name": "id",
@@ -820,7 +820,7 @@
 									},
 									{
 										"source": {
-											"path": "code"
+											"path": "[['code']"
 										},
 										"sink": {
 											"name": "code",
@@ -829,7 +829,7 @@
 									},
 									{
 										"source": {
-											"path": "name"
+											"path": "[['name']"
 										},
 										"sink": {
 											"name": "name",
@@ -838,7 +838,7 @@
 									},
 									{
 										"source": {
-											"path": "bakeryNumber"
+											"path": "[['bakeryNumber']"
 										},
 										"sink": {
 											"name": "bakeryNumber",
@@ -847,7 +847,7 @@
 									},
 									{
 										"source": {
-											"path": "franchisee"
+											"path": "[['franchisee']"
 										},
 										"sink": {
 											"name": "franchisee",
@@ -856,7 +856,7 @@
 									},
 									{
 										"source": {
-											"path": "region"
+											"path": "[['region']"
 										},
 										"sink": {
 											"name": "region",
@@ -865,7 +865,7 @@
 									},
 									{
 										"source": {
-											"path": "supplierRegion"
+											"path": "[['supplierRegion']"
 										},
 										"sink": {
 											"name": "supplierRegion",
@@ -874,7 +874,7 @@
 									},
 									{
 										"source": {
-											"path": "areaManagerName"
+											"path": "[['areaManagerName']"
 										},
 										"sink": {
 											"name": "areaManagerName",
@@ -883,16 +883,16 @@
 									},
 									{
 										"source": {
-											"path": "bakeryForSale"
+											"path": "[['bakeryForSale']"
 										},
 										"sink": {
 											"name": "bakeryForSale",
-											"type": "Boolean"
+											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"path": "storeType"
+											"path": "[['storeType']"
 										},
 										"sink": {
 											"name": "storeType",
@@ -901,7 +901,7 @@
 									},
 									{
 										"source": {
-											"path": "dateOpened"
+											"path": "[['dateOpened']"
 										},
 										"sink": {
 											"name": "dateOpened",
@@ -910,7 +910,7 @@
 									},
 									{
 										"source": {
-											"path": "dateClosed"
+											"path": "[['dateClosed']"
 										},
 										"sink": {
 											"name": "dateClosed",
@@ -919,7 +919,7 @@
 									},
 									{
 										"source": {
-											"path": "royaltyPercentage"
+											"path": "[['royaltyPercentage']"
 										},
 										"sink": {
 											"name": "royaltyPercentage",
@@ -928,7 +928,7 @@
 									},
 									{
 										"source": {
-											"path": "currency"
+											"path": "[['currency']"
 										},
 										"sink": {
 											"name": "currency",
@@ -937,7 +937,7 @@
 									},
 									{
 										"source": {
-											"path": "menulogURL"
+											"path": "[['menulogURL']"
 										},
 										"sink": {
 											"name": "menulogURL",
@@ -946,7 +946,7 @@
 									},
 									{
 										"source": {
-											"path": "uberURL"
+											"path": "[['uberURL']"
 										},
 										"sink": {
 											"name": "uberURL",
