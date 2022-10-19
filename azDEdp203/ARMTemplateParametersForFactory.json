@@ -21,7 +21,7 @@
 			"value": "https://training-dn-KV.vault.azure.net/"
 		},
 		"BDHdev_properties_typeProperties_url": {
-			"value": "https://profiseecloud.com/bdhdev/restv1"
+			"value": "https://profiseecloud.com/bdhdev/rest/v1"
 		},
 		"BDHdevLinkedService_properties_typeProperties_url": {
 			"value": "https://adfwprofisee.dfs.core.windows.net/"

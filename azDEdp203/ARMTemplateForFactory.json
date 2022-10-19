@@ -29,7 +29,7 @@
 		},
 		"BDHdev_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://profiseecloud.com/bdhdev/restv1"
+			"defaultValue": "https://profiseecloud.com/bdhdev/rest/v1"
 		},
 		"BDHdevLinkedService_properties_typeProperties_url": {
 			"type": "string",
