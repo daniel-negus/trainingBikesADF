@@ -48,10 +48,6 @@
 						"referenceName": "BDHdevGET",
 						"type": "DatasetReference",
 						"parameters": {
-							"entityId": {
-								"value": "@variables('EntityId')",
-								"type": "Expression"
-							},
 							"pageSize": 1000,
 							"attributes": " ",
 							"filter": " ",
