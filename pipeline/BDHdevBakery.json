@@ -61,17 +61,7 @@
 				"outputs": [
 					{
 						"referenceName": "AdlsGen2BlobCsv2",
-						"type": "DatasetReference",
-						"parameters": {
-							"FolderName": {
-								"value": "@concat(variables('OutputContainer'), '/', variables('EntityId'))",
-								"type": "Expression"
-							},
-							"FileName": {
-								"value": "@concat(variables('EntityId'), '_', string(utcnow()), '.csv')",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				]
 			}
