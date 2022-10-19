@@ -45,7 +45,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ProfiseeRESTAPI_Records_Get1",
+						"referenceName": "BDHdevGET",
 						"type": "DatasetReference",
 						"parameters": {
 							"entityId": {

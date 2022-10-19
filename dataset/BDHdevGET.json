@@ -1,5 +1,5 @@
 {
-	"name": "ProfiseeRESTAPI_Records_Get1",
+	"name": "BDHdevGET",
 	"properties": {
 		"description": "Profisee members get REST API call.",
 		"linkedServiceName": {
