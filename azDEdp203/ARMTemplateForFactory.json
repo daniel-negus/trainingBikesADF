@@ -96,6 +96,162 @@
 							"enableStaging": false,
 							"translator": {
 								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "internalid"
+										},
+										"sink": {
+											"name": "internalId",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "id"
+										},
+										"sink": {
+											"name": "id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "code"
+										},
+										"sink": {
+											"name": "code",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "name"
+										},
+										"sink": {
+											"name": "name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "bakeryNumber"
+										},
+										"sink": {
+											"name": "bakeryNumber",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "franchisee"
+										},
+										"sink": {
+											"name": "franchisee",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "region"
+										},
+										"sink": {
+											"name": "region",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "supplierRegion"
+										},
+										"sink": {
+											"name": "supplierRegion",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "areaManagerName"
+										},
+										"sink": {
+											"name": "areaManagerName",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "bakeryForSale"
+										},
+										"sink": {
+											"name": "bakeryForSale",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"path": "storeType"
+										},
+										"sink": {
+											"name": "storeType",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "dateOpened"
+										},
+										"sink": {
+											"name": "dateOpened",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "dateClosed"
+										},
+										"sink": {
+											"name": "dateClosed",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "royaltyPercentage"
+										},
+										"sink": {
+											"name": "royaltyPercentage",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"path": "currency"
+										},
+										"sink": {
+											"name": "currency",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "menulogURL"
+										},
+										"sink": {
+											"name": "menulogURL",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "uberURL"
+										},
+										"sink": {
+											"name": "uberURL",
+											"type": "String"
+										}
+									}
+								],
+								"collectionReference": "$['data']",
 								"mapComplexValuesToString": false
 							}
 						},
