@@ -29,12 +29,7 @@
 						"type": "DelimitedTextSink",
 						"storeSettings": {
 							"type": "AzureBlobFSWriteSettings",
-							"copyBehavior": "PreserveHierarchy",
-							"metadata": [
-								{
-									"value": ""
-								}
-							]
+							"copyBehavior": "PreserveHierarchy"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
