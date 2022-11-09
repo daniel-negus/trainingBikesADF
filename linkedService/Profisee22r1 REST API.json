@@ -1,0 +1,20 @@
+{
+	"name": "Profisee22r1 REST API",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Profisee Rest api gateway for v22r1",
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://profdev22r1.qmetrix.com.au/profisee/rest/v1",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous",
+			"authHeaders": {
+				"X-API-Key": {
+					"type": "SecureString",
+					"value": "**********"
+				}
+			}
+		}
+	}
+}
