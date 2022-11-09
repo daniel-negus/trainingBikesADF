@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'BDHdevLinkedService'"
 		},
+		"profisee_test_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'profisee_test'"
+		},
 		"training storage_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'training storage'"
@@ -35,9 +39,17 @@
 			"type": "string",
 			"defaultValue": "https://adfwprofisee.dfs.core.windows.net/"
 		},
+		"Profisee22r1 REST API_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://profdev22r1.qmetrix.com.au/profisee/rest/v1"
+		},
 		"profiseeREST_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://training-dn.australiaeast.cloudapp.azure.com/Profisee/rest/v1"
+		},
+		"profisee_test_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adfwprofisee.dfs.core.windows.net/"
 		},
 		"training storage_properties_typeProperties_url": {
 			"type": "string",
@@ -77,6 +89,9 @@
 					"BDHdevLinkedService_accountKey": {
 						"value": "[parameters('BDHdevLinkedService_accountKey')]"
 					},
+					"profisee_test_accountKey": {
+						"value": "[parameters('profisee_test_accountKey')]"
+					},
 					"training storage_accountKey": {
 						"value": "[parameters('training storage_accountKey')]"
 					},
@@ -95,8 +110,14 @@
 					"BDHdevLinkedService_properties_typeProperties_url": {
 						"value": "[parameters('BDHdevLinkedService_properties_typeProperties_url')]"
 					},
+					"Profisee22r1 REST API_properties_typeProperties_url": {
+						"value": "[parameters('Profisee22r1 REST API_properties_typeProperties_url')]"
+					},
 					"profiseeREST_properties_typeProperties_url": {
 						"value": "[parameters('profiseeREST_properties_typeProperties_url')]"
+					},
+					"profisee_test_properties_typeProperties_url": {
+						"value": "[parameters('profisee_test_properties_typeProperties_url')]"
 					},
 					"training storage_properties_typeProperties_url": {
 						"value": "[parameters('training storage_properties_typeProperties_url')]"
@@ -107,6 +128,26 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "azDEdp203_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'azDEdp203_ArmTemplate_0')]"
+			]
 		}
 	]
 }

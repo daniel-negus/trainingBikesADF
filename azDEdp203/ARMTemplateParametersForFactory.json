@@ -8,6 +8,9 @@
 		"BDHdevLinkedService_accountKey": {
 			"value": ""
 		},
+		"profisee_test_accountKey": {
+			"value": ""
+		},
 		"training storage_accountKey": {
 			"value": ""
 		},
@@ -26,8 +29,14 @@
 		"BDHdevLinkedService_properties_typeProperties_url": {
 			"value": "https://adfwprofisee.dfs.core.windows.net/"
 		},
+		"Profisee22r1 REST API_properties_typeProperties_url": {
+			"value": "https://profdev22r1.qmetrix.com.au/profisee/rest/v1"
+		},
 		"profiseeREST_properties_typeProperties_url": {
 			"value": "https://training-dn.australiaeast.cloudapp.azure.com/Profisee/rest/v1"
+		},
+		"profisee_test_properties_typeProperties_url": {
+			"value": "https://adfwprofisee.dfs.core.windows.net/"
 		},
 		"training storage_properties_typeProperties_url": {
 			"value": "https://adfwprofisee.dfs.core.windows.net/"
