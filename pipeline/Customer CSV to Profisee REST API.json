@@ -34,7 +34,138 @@
 						"writeBatchSize": 10000,
 						"httpCompressionType": "none"
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Name",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Name']"
+								}
+							},
+							{
+								"source": {
+									"name": "Code",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Code']"
+								}
+							},
+							{
+								"source": {
+									"name": "Source System",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['SourceSystem']"
+								}
+							},
+							{
+								"source": {
+									"name": "Record Source Code",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['RecordSourceCode']"
+								}
+							},
+							{
+								"source": {
+									"name": "Salutation",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Salutation']"
+								}
+							},
+							{
+								"source": {
+									"name": "Legal Name",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['LegalName']"
+								}
+							},
+							{
+								"source": {
+									"name": "Preferred Name",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Preferred Nam']"
+								}
+							},
+							{
+								"source": {
+									"name": "First Name",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['FirstName']"
+								}
+							},
+							{
+								"source": {
+									"name": "Last Name",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['LastName']"
+								}
+							},
+							{
+								"source": {
+									"name": "Date Of Birth",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['DateOfBirth']"
+								}
+							},
+							{
+								"source": {
+									"name": "Primary Email Address",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['PrimaryEmailAddress']"
+								}
+							},
+							{
+								"source": {
+									"name": "Primary Mobile Phone Number",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['PrimaryMobilePhoneNumber']"
+								}
+							},
+							{
+								"source": {
+									"name": "Primary Home Phone Number",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['PrimaryHomePhoneNumber']"
+								}
+							},
+							{
+								"source": {
+									"name": "Primary Business Phone Number",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['PrimaryBusinessPhoneNumber']"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
