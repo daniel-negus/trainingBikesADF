@@ -161,14 +161,8 @@
 								"referenceName": "AdlsGen2BlobCsv3",
 								"type": "DatasetReference",
 								"parameters": {
-									"FolderName": {
-										"value": "@pipeline().parameters.FileFolder",
-										"type": "Expression"
-									},
-									"FileName": {
-										"value": "@pipeline().parameters.FileName",
-										"type": "Expression"
-									}
+									"FolderName": "profisee-input",
+									"FileName": "customer"
 								}
 							}
 						],
@@ -192,10 +186,12 @@
 				},
 				"parameters": {
 					"FileName": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "customer"
 					},
 					"FileFolder": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "profisee-input"
 					}
 				},
 				"folder": {
