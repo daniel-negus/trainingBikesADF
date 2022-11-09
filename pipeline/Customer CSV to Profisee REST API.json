@@ -69,7 +69,7 @@
 		"parameters": {
 			"FileName": {
 				"type": "string",
-				"defaultValue": "customer.csv"
+				"defaultValue": "customer"
 			},
 			"FileFolder": {
 				"type": "string",
