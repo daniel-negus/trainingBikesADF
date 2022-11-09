@@ -8,7 +8,8 @@
 		},
 		"parameters": {
 			"entityId": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "Customer"
 			}
 		},
 		"folder": {
