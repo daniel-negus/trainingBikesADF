@@ -10,10 +10,6 @@
 			"entityId": {
 				"type": "string",
 				"defaultValue": "Customer"
-			},
-			"autoAddAllDbas": {
-				"type": "bool",
-				"defaultValue": "True"
 			}
 		},
 		"folder": {
@@ -23,7 +19,7 @@
 		"type": "RestResource",
 		"typeProperties": {
 			"relativeUrl": {
-				"value": "@concat(\n'records/',\ndataset().entityId, \n'/?isUpsert=true'\n)\n",
+				"value": "@concat(\n'records/',\ndataset().entityId, \n'/?isUpsert=true',\n'/?autoAddAllDbas=true'\n)\n",
 				"type": "Expression"
 			}
 		},
