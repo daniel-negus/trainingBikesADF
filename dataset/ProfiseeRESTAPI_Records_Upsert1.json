@@ -10,6 +10,10 @@
 			"entityId": {
 				"type": "string",
 				"defaultValue": "Customer"
+			},
+			"autoAddAllDbas": {
+				"type": "bool",
+				"defaultValue": "True"
 			}
 		},
 		"folder": {
