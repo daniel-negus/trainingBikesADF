@@ -5,7 +5,7 @@
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://profiseecloud.com/bdhdev/rest/v1",
+			"url": "https://mel-dem-prof06.qmetrix.local/profisee/rest/v1",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous",
 			"authHeaders": {
