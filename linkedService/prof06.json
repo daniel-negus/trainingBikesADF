@@ -14,6 +14,10 @@
 					"value": "**********"
 				}
 			}
+		},
+		"connectVia": {
+			"referenceName": "DanIR1",
+			"type": "IntegrationRuntimeReference"
 		}
 	}
 }
