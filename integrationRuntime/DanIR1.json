@@ -1,0 +1,7 @@
+{
+	"name": "DanIR1",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "Danie Negus IR"
+	}
+}
